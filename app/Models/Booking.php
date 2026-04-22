@@ -14,8 +14,6 @@ class Booking extends Model
         'hotel_id',
         'check_in_date',
         'check_out_date',
-        'check_in_time',
-        'check_out_time',
         'status',
         'payment_status',
         'total_amount',
@@ -26,8 +24,6 @@ class Booking extends Model
     protected $casts = [
         'check_in_date' => 'date',
         'check_out_date' => 'date',
-        'check_in_time' => 'datetime',
-        'check_out_time' => 'datetime',
         'total_amount' => 'decimal:2',
     ];
 

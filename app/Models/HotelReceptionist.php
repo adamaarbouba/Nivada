@@ -13,13 +13,9 @@ class HotelReceptionist extends Model
         'user_id',
         'hotel_id',
         'status', // active or inactive
-        'shift_start',
-        'shift_end',
     ];
 
     protected $casts = [
-        'shift_start' => 'datetime',
-        'shift_end' => 'datetime',
     ];
 
     // Relationships

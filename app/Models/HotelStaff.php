@@ -15,15 +15,11 @@ class HotelStaff extends Model
         'role', // cleaner or inspector
         'hourly_rate',
         'is_available',
-        'available_from',
-        'available_to',
-        'available_days', // JSON
     ];
 
     protected $casts = [
         'hourly_rate' => 'decimal:2',
         'is_available' => 'boolean',
-        'available_days' => 'array',
     ];
 
     // Relationships

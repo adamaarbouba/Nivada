@@ -55,7 +55,7 @@ class Hotel extends Model
     public function staff(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'hotel_staff')
-            ->withPivot('role', 'hourly_rate', 'is_available', 'available_from', 'available_to', 'available_days')
+            ->withPivot('role', 'hourly_rate', 'is_available')
             ->withTimestamps();
     }
 

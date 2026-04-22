@@ -16,13 +16,9 @@ class InspectionRequest extends Model
         'status', // pending, approved, rejected, resolved
         'severity', // minor, moderate, severe
         'issue_description',
-        'approval_date',
-        'resolved_date',
     ];
 
     protected $casts = [
-        'approval_date' => 'datetime',
-        'resolved_date' => 'datetime',
     ];
 
     // Relationships
