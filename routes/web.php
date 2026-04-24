@@ -17,6 +17,7 @@ use App\Http\Controllers\Receptionist\DashboardController as ReceptionistDashboa
 use App\Http\Controllers\Receptionist\BookingController as ReceptionistBookingController;
 use App\Http\Controllers\Receptionist\PaymentController as ReceptionistPaymentController;
 use App\Http\Controllers\ProfileController;
+use \App\Http\Controllers\Receptionist\PaymentController;
 use App\Http\Controllers\Inspector\DashboardController as InspectorDashboardController;
 
 
@@ -140,8 +141,8 @@ Route::middleware('auth')->group(function () {
         Route::delete('/receptionist/bookings/{booking}/payments/{payment}', [ReceptionistPaymentController::class, 'deletePayment'])->name('receptionist.payments.delete');
 
         // Refund Request Handling
-        Route::post('/receptionist/refund-requests/{refundRequest}/approve', [\App\Http\Controllers\Receptionist\PaymentController::class, 'approveRefund'])->name('receptionist.refund-requests.approve');
-        Route::post('/receptionist/refund-requests/{refundRequest}/deny', [\App\Http\Controllers\Receptionist\PaymentController::class, 'denyRefund'])->name('receptionist.refund-requests.deny');
+        Route::post('/receptionist/refund-requests/{refundRequest}/approve', [PaymentController::class, 'approveRefund'])->name('receptionist.refund-requests.approve');
+        Route::post('/receptionist/refund-requests/{refundRequest}/deny', [PaymentController::class, 'denyRefund'])->name('receptionist.refund-requests.deny');
     });
     // Cleaner Routes
     Route::middleware('role:cleaner')->group(function () {
