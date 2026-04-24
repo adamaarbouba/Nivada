@@ -19,6 +19,10 @@ use App\Http\Controllers\Receptionist\PaymentController as ReceptionistPaymentCo
 use App\Http\Controllers\ProfileController;
 use \App\Http\Controllers\Receptionist\PaymentController;
 use App\Http\Controllers\Inspector\DashboardController as InspectorDashboardController;
+use App\Http\Controllers\Guest\DashboardController as GuestDashboardController;
+use App\Http\Controllers\Guest\HotelsController as GuestHotelsController;
+use App\Http\Controllers\Guest\BookingController as GuestBookingController;
+use App\Http\Controllers\Guest\ReviewController as GuestReviewController;
 
 
 // Base Route
@@ -156,6 +160,25 @@ Route::middleware('auth')->group(function () {
         Route::get('/inspector/dashboard', [InspectorDashboardController::class, 'index'])->name('inspector.dashboard');
         Route::get('/inspector/rooms/{room}/inspect', [InspectorDashboardController::class, 'showInspectionForm'])->name('inspector.rooms.inspect-form');
         Route::post('/inspector/rooms/{room}/inspect', [InspectorDashboardController::class, 'completeInspection'])->name('inspector.rooms.inspect');
+    });
+    Route::middleware('role:guest')->group(function () {
+        Route::get('/guest/dashboard', [GuestDashboardController::class, 'index'])->name('guest.dashboard');
+    });
+
+    Route::middleware('auth')->group(function () {
+        Route::get('/guest/hotels', [GuestHotelsController::class, 'index'])->name('guest.hotels.index');
+        Route::get('/guest/hotels/{hotel}', [GuestHotelsController::class, 'show'])->name('guest.hotels.show');
+        Route::get('/guest/bookings', [GuestBookingController::class, 'index'])->name('guest.bookings.index');
+        Route::get('/guest/rooms/{room}/book', [GuestBookingController::class, 'create'])->name('guest.bookings.create');
+        Route::post('/guest/rooms/{room}/book', [GuestBookingController::class, 'store'])->name('guest.bookings.store');
+        Route::get('/guest/bookings/{booking}/confirmation', [GuestBookingController::class, 'confirmation'])->name('guest.bookings.confirmation');
+        Route::get('/guest/bookings/{booking}/payment', [\App\Http\Controllers\Guest\PaymentController::class, 'showPaymentForm'])->name('guest.payments.form');
+        Route::post('/guest/bookings/{booking}/payment', [\App\Http\Controllers\Guest\PaymentController::class, 'processPayment'])->name('guest.payments.process');
+        Route::post('/guest/bookings/{booking}/refund-request', [\App\Http\Controllers\Guest\PaymentController::class, 'requestRefund'])->name('guest.refund-requests.store');
+        Route::get('/guest/reviews', [GuestReviewController::class, 'index'])->name('guest.reviews.index');
+        Route::get('/guest/bookings/{booking}/review', [GuestReviewController::class, 'create'])->name('guest.reviews.create');
+        Route::post('/guest/bookings/{booking}/review', [GuestReviewController::class, 'store'])->name('guest.reviews.store');
+        Route::get('/guest/reviews/{review}', [GuestReviewController::class, 'show'])->name('guest.reviews.show');
     });
 
 

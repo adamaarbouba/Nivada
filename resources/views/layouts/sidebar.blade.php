@@ -43,7 +43,7 @@
                                 class="flex items-center px-4 py-3 rounded-lg transition-colors duration-200
                                        {{ $isActive ? 'text-[#EAD3CD] font-semibold bg-[#A0717F]' : 'text-[#CFCBCA] hover:text-[#EAD3CD] hover:bg-[#2A2729]' }}">
                                 <span class="mr-3 flex items-center justify-center">
-                                    @if(isset($item['icon_name']))
+                                    @if (isset($item['icon_name']))
                                         <x-icon :name="$item['icon_name']" size="md" />
                                     @else
                                         •
@@ -51,7 +51,8 @@
                                 </span>
                                 <span>{{ $item['label'] }}</span>
                                 @if (isset($item['badge']))
-                                    <span class="ml-auto px-2 py-1 text-xs font-semibold rounded-full text-white bg-[#A0717F]">
+                                    <span
+                                        class="ml-auto px-2 py-1 text-xs font-semibold rounded-full text-white bg-[#A0717F]">
                                         {{ $item['badge'] }}
                                     </span>
                                 @endif
@@ -126,7 +127,3 @@
 </body>
 
 </html>
-
-
-
-
