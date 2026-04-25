@@ -23,6 +23,8 @@ use App\Http\Controllers\Guest\DashboardController as GuestDashboardController;
 use App\Http\Controllers\Guest\HotelsController as GuestHotelsController;
 use App\Http\Controllers\Guest\BookingController as GuestBookingController;
 use App\Http\Controllers\Guest\ReviewController as GuestReviewController;
+use App\Http\Controllers\Staff\HotelBrowseController as StaffHotelBrowseController;
+
 
 
 // Base Route
@@ -164,6 +166,13 @@ Route::middleware('auth')->group(function () {
     Route::middleware('role:guest')->group(function () {
         Route::get('/guest/dashboard', [GuestDashboardController::class, 'index'])->name('guest.dashboard');
     });
+    Route::middleware('role:cleaner,inspector,receptionist')->group(function () {
+        Route::get('/staff/hotels', [StaffHotelBrowseController::class, 'index'])->name('staff.hotels.index');
+        Route::get('/staff/hotels/{hotel}/apply', [StaffHotelBrowseController::class, 'apply'])->name('staff.hotels.apply');
+        Route::post('/staff/hotels/{hotel}/apply', [StaffHotelBrowseController::class, 'storeApplication'])->name('staff.hotels.storeApplication');
+        Route::get('/staff/my-applications', [StaffHotelBrowseController::class, 'myApplications'])->name('staff.my-applications');
+    });
+
 
     Route::middleware('auth')->group(function () {
         Route::get('/guest/hotels', [GuestHotelsController::class, 'index'])->name('guest.hotels.index');
