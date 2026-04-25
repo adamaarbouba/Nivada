@@ -3,16 +3,7 @@
 @section('content')
     <!-- Main Content -->
     <div class="max-w-2xl mx-auto px-4 py-12">
-        <!-- Success Message -->
-        <div class="bg-[#1A1515] border border-green-500 rounded-lg p-6 mb-8">
-            <div class="flex items-center gap-3 mb-2">
-                <x-icon name="checkmark" size="md" class="text-green-400" />
-                <h2 class="text-xl font-bold text-green-400">Booking Confirmed!</h2>
-            </div>
-            <p class="text-green-400">Your booking has been successfully created. Booking ID:
-                <strong>#{{ $booking->id }}</strong>
-            </p>
-        </div>
+
 
         <!-- Booking Details Card -->
         <div class="bg-[#383537] border border-[#4E3B46] rounded-lg shadow-lg p-8 mb-8">

@@ -5,9 +5,14 @@
 @endphp
 
 @section('content')
-    <x-breadcrumbs :links="[
-        ['label' => 'Guest Dashboard', 'url' => '#']
-    ]" />
+    <div class="mb-12">
+        <p class="text-xs font-medium uppercase mb-2" style="color: #A0717F; letter-spacing: 0.4em;">
+            Experience
+        </p>
+        <h1 class="text-3xl lg:text-5xl font-bold" style="color: #EAD3CD; font-family: 'Georgia', serif;">
+            Guest Atelier
+        </h1>
+    </div>
 
     <!-- Guest Stats -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -30,15 +35,15 @@
         <h3 class="text-xl font-semibold mb-6 text-[#EAD3CD]">Quick Actions</h3>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <a href="{{ route('guest.hotels.index') }}" class="p-4 border border-[#4E3B46] bg-[#383537] hover:bg-[#2A2729] rounded-lg transition hover:shadow-md">
-                <h4 class="font-semibold text-[#A0717F]">🔍 Search Hotels</h4>
+                <h4 class="font-semibold text-[#A0717F]">Search Hotels</h4>
                 <p class="text-sm mt-1 text-[#CFCBCA]">Browse and book hotels</p>
             </a>
             <a href="{{ route('guest.bookings.index') }}" class="p-4 border border-[#4E3B46] bg-[#383537] hover:bg-[#2A2729] rounded-lg transition hover:shadow-md">
-                <h4 class="font-semibold text-[#EAD3CD]">📅 My Bookings</h4>
+                <h4 class="font-semibold text-[#EAD3CD]">My Bookings</h4>
                 <p class="text-sm mt-1 text-[#CFCBCA]">View current and past bookings</p>
             </a>
             <a href="{{ route('guest.reviews.index') }}" class="p-4 border border-[#4E3B46] bg-[#383537] hover:bg-[#2A2729] rounded-lg transition hover:shadow-md">
-                <h4 class="font-semibold text-[#A0717F]">⭐ My Reviews</h4>
+                <h4 class="font-semibold text-[#A0717F]">My Reviews</h4>
                 <p class="text-sm mt-1 text-[#CFCBCA]">Leave and view your reviews</p>
             </a>
         </div>
@@ -129,9 +134,7 @@
         @endif
     </div>
 
-    <div class="mt-8 p-6 rounded-lg bg-[#2A2729] border border-[#4E3B46] text-[#CFCBCA]">
-        <p><strong class="text-[#EAD3CD]">Welcome! 👋</strong> This is your guest dashboard. Use this to search for hotels,
-        manage your bookings, and leave reviews.</p>@endsection
+@endsection
 
 
 

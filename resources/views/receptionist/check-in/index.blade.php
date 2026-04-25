@@ -21,17 +21,7 @@
             </h1>
         </div>
 
-        @if (session('success'))
-            <div class="mb-6 p-4 rounded-xl" style="background-color: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3);">
-                <p class="text-green-400 font-medium">✓ {{ session('success') }}</p>
-            </div>
-        @endif
 
-        @if (session('error'))
-            <div class="mb-6 p-4 rounded-xl" style="background-color: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3);">
-                <p class="text-red-400 font-medium">✗ {{ session('error') }}</p>
-            </div>
-        @endif
 
         @if ($pendingCheckIns->count() > 0)
             

@@ -10,7 +10,7 @@
             <div class="relative z-10 h-full flex flex-col items-start justify-end p-8">
                 <h1 class="text-5xl font-black text-[#EAD3CD] mb-2">{{ $hotel->name }}</h1>
                 <div class="flex items-center gap-4">
-                    <p class="text-[#CFCBCA]">📍 {{ $hotel->city }}, {{ $hotel->country }}</p>
+                    <p class="text-[#CFCBCA]">{{ $hotel->city }}, {{ $hotel->country }}</p>
                     @if ($hotel->rating)
                         <div class="flex items-center gap-1 bg-[#1A1515]/50 px-3 py-1 rounded-lg">
                             <span class="text-[#EAD3CD]">★</span>
@@ -141,9 +141,9 @@
 
                                 <!-- Room Details -->
                                 <div class="text-sm text-[#EAD3CD] mb-4 space-y-1 pb-4 border-b border-[#4E3B46]">
-                                    <p>👥 Capacity: {{ $room->capacity }} {{ $room->capacity > 1 ? 'guests' : 'guest' }}
+                                    <p>Capacity: {{ $room->capacity }} {{ $room->capacity > 1 ? 'guests' : 'guest' }}
                                     </p>
-                                    <p>📍 Floor {{ $room->floor ?? 'N/A' }}</p>
+                                    <p>Floor {{ $room->floor ?? 'N/A' }}</p>
                                 </div>
 
                                 <!-- Price -->
